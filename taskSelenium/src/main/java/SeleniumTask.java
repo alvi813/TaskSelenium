@@ -66,6 +66,12 @@ public class SeleniumTask {
             //paragraphsCollection.printArticleTitleToConsole(articleTitle);
             //paragraphsCollection.printTextCollectionToConsole(textList);
 
+            seleniumTask.closeDriver(firefoxDriver);
+
+
+            //--------------------------------------------------------------------------------------------------
+
+
             WebDriver firefoxDriver2 = new FirefoxDriver();
 
             TextTranslation textTranslation = new TextTranslation(firefoxDriver2);
@@ -75,6 +81,11 @@ public class SeleniumTask {
             String translatedArticleTitle = textTranslation.translateArticleTitle(articleTitle);
             //textTranslation.printTranslatedTextWithTitleToConsole(translatedArticleTitle, translatedTextList);
 
+            seleniumTask.closeDriver(firefoxDriver2);
+
+
+            //--------------------------------------------------------------------------------------------------
+
 
             seleniumTask.specifyFirefoxProfile(seleniumTask.firefoxProfile);
             WebDriver firefoxDriver3 = new FirefoxDriver();
@@ -82,6 +93,8 @@ public class SeleniumTask {
             YandexZenArticle yandexZenArticle = new YandexZenArticle(firefoxDriver3);
             seleniumTask.openWebPage(firefoxDriver3, seleniumTask.yandexZenChannelUrl);
             yandexZenArticle.addArticleToYandexZen(translatedArticleTitle, translatedTextList);
+
+            seleniumTask.closeDriver(firefoxDriver3);
         }
     }
 }
